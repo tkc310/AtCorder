@@ -15,21 +15,21 @@
 
 // 例: 3 4 -> Even, 1 21 -> Odd
 
-process.stdin.setEncoding("utf8");
+process.stdin.setEncoding('utf8');
 
 class ABC086A {
   constructor() {
     // キーボード入力待ちにする
     process.stdin.resume();
 
-    process.stdin.on("data", (chunk: string) => {
-      const lines = chunk.split(" ");
+    process.stdin.on('data', (chunk: string) => {
+      const lines = chunk.split(' ');
 
       const a = Number(lines[0]);
       const b = Number(lines[1]);
 
       if (![a, b].every((item) => !!item)) {
-        throw new Error("");
+        throw new Error('');
       }
 
       this.execute(a, b);
@@ -37,7 +37,7 @@ class ABC086A {
   }
 
   execute(a: number, b: number) {
-    const answer = (a * b) % 2 ? "Odd" : "Even";
+    const answer = (a * b) % 2 ? 'Odd' : 'Even';
     console.log(answer);
   }
 }

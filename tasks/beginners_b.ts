@@ -1,5 +1,5 @@
 /* 標準入力の取得、処理起点 */
-process.stdin.setEncoding("utf8");
+process.stdin.setEncoding('utf8');
 
 type TQuery = {
   char: string;
@@ -20,8 +20,8 @@ class BeginnersB {
     // キーボード入力待ちにする
     process.stdin.resume();
 
-    process.stdin.on("data", (chunk: string) => {
-      const lines = chunk.split(" ");
+    process.stdin.on('data', (chunk: string) => {
+      const lines = chunk.split(' ');
 
       if (this.isFirst) {
         this.n = Number(lines[0][0]);
@@ -30,17 +30,17 @@ class BeginnersB {
 
         this.isFirst = !this.isFirst;
       } else {
-        const lg = lines[0][0] as "<" | ">";
+        const lg = lines[0][0] as '<' | '>';
         this.execute(lg);
       }
     });
   }
 
-  execute(lg?: "<" | ">"): void {
+  execute(lg?: '<' | '>'): void {
     const initialCodePoint: number = 65; // Aのコードポイント
     if (this.isFirst) {
       this.queries = [...Array(this.n)].map((_, idx) => {
-        const char: TQuery["char"] = String.fromCodePoint(
+        const char: TQuery['char'] = String.fromCodePoint(
           initialCodePoint + idx
         );
 
@@ -53,10 +53,10 @@ class BeginnersB {
     }
 
     switch (lg) {
-      case ">":
+      case '>':
         this.queries[0].weight++;
         break;
-      case "<":
+      case '<':
         this.queries[1].weight++;
         break;
     }
@@ -80,10 +80,10 @@ class BeginnersB {
       this.queries = this.queries.sort((a, b) => a.weight - b.weight);
 
       const output = [
-        "! ",
+        '! ',
         ...this.queries.map((query) => query.char),
-        "\n",
-      ].join("");
+        '\n',
+      ].join('');
 
       process.stdout.write(output);
     } else {
@@ -92,11 +92,11 @@ class BeginnersB {
       this.queries = this.queries.sort((a, b) => a.count - b.count);
 
       const output = [
-        "?",
+        '?',
         this.queries[0].char,
         this.queries[1].char,
-        "\n",
-      ].join(" ");
+        '\n',
+      ].join(' ');
 
       this.queryCount++;
 
@@ -105,7 +105,7 @@ class BeginnersB {
   }
 
   flush() {
-    process.stdout.write("");
+    process.stdout.write('');
     console.clear();
   }
 }

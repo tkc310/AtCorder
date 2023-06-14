@@ -1,19 +1,19 @@
-process.stdin.setEncoding("utf8");
+process.stdin.setEncoding('utf8');
 
 class ReplacePermutation {
   constructor() {
     const inputs: string[] = [];
-    const reader = require("readline").createInterface({
+    const reader = require('readline').createInterface({
       input: process.stdin,
     });
 
-    reader.on("line", (line) => {
+    reader.on('line', (line) => {
       inputs.push(line);
     });
 
-    reader.on("close", () => {
-      const line1 = inputs[0].split(" ");
-      const line2 = inputs[1].split(" ");
+    reader.on('close', () => {
+      const line1 = inputs[0].split(' ');
+      const line2 = inputs[1].split(' ');
       const permutationsA = line2.map((value) => Number(value));
       // Nが入力順列の桁数とは述べられていないため最小値を利用
       const rangeN = Math.min(permutationsA.length, Number(line1[0]));
@@ -41,7 +41,7 @@ class ReplacePermutation {
     const answerPermutations = permutationsSets[computableTurn] || [];
 
     // "1 2 3..."
-    console.log(answerPermutations.join(" "));
+    console.log(answerPermutations.join(' '));
   }
 
   replacePermutations({
