@@ -14,12 +14,14 @@ $ npm run githooks
 
 ## 教訓
 
+- とても謙虚になれる
 - nodeでインタラクティブ問題は標準出力をflushできないので厳しそう (rust or goの機運)
 - `reader.on('line', (line)` よりも `process.stdin.on('data'` の方がローカルで動かしやすい
 - 入出力例だけだと不十分なためテストコードも必要
 
 ## 候補
 
-- Language Test 202001
-https://atcoder.jp/contests/language-test-202001/tasks
-
+- Language Test 202001  
+https://atcoder.jp/contests/language-test-202001/tasks  
+- 京セラプログラミングコンテスト2023(AtCoder Beginner Contest 305)  
+https://atcoder.jp/contests/abc305
