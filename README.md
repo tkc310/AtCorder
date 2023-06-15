@@ -16,6 +16,7 @@ $ npm run githooks
 
 - nodeでインタラクティブ問題は標準出力をflushできないので厳しそう (rust or goの機運)
 - `reader.on('line', (line)` よりも `process.stdin.on('data'` の方がローカルで動かしやすい
+- 入出力例だけだと不十分なためテストコードも必要
 
 ## 候補
 
